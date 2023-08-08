@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS gyakorló 6 -  lecke</title>
+</head>
+<body>
+    <script>
+//------------------------------------------- 6. fejezet: OPERÁTOROK I. --------------------------------------------------------
+        
+        //  2 + 3 = 5 ---->    ahol a  2 = operandus, * = operátor
+
+        /* Operátorok csoportosítása:
+              - operandusok száma szerint:
+                       1 operandusú : unary
+                       2 op.: binary
+                       3 op.: ternary
+              - az operátor lexikális elhelyezkedése az operandusokhoz képest
+                       előtte van : prefix operátor
+                       közötte : infix
+                       utána : postfix
+              - hajt-e végre mellékhatást a rendszerben? (side effect)
+                                                       Pl 2+3=5 ... ebbe nincs mellékhatás---> determinisztikusan ugyanazon inputot kapva
+                                                                                                 mindig ugyanazon outputot generálják ki. 
+                                                        Mellékhatások pl: - kiírhat a konzolba
+                                                                          - beolvashat adatot
+                                                                          - eltárolhat adatot a memóriába
+                       igen
+                       nem
+
+    */
+//---------------------------------------------------------------
+
+    // aritmetikai operátorok:  (number,number) ---> number -->  +   -   *    /   % (modulus)
+
+//-------------------------------------------------------------
+
+    // Összehasonlító operátorok: (any, any ) ---> boolean
+
+           // == equality operátor  (ezek érzékenyek, mert hamar átkonvertálnak értékeket, így  hamisan adják vissza)
+
+    console.log (2 == 2);      // true
+    console.log (2 == '2');    // true ---> hiába string, átkonvertálja számmá (ez egy hiba a programban, de akkor is true az eredmény)
+    console.log (1 == true);   // true ---> hasonlóan az előzővel, ezt is true-nak értékeli, mert ugyanúgy csak típusátalakítást végez.
+    console.log (2 != 2);      // false
+
+           // === identity opreátor  (szigorúbb operátorok, mivel kész tényekere alapoznak. Nem alakítanak át semmit. Valami vagy Igaz, vagy Hamis)
+
+    console.log (2 === 2);      // true
+    console.log (2 === '2');    // false 
+    console.log (1 === true);   // false
+    console.log (2 !== 2);      // false
+
+           // <, <=, >, >= 
+
+//-----------------------------------------------------------
+
+    // Logikai opretárok: (boolean, boolean) ---> boolean
+    //                    (boolean) ---> boolean
+
+    // logikai ÉS
+        console.log(true && false);     // false
+        console.log(true && true );     // true
+        console.log(false && false);    // false
+    
+    // logikai VAGY 
+       console.log(true || false);      // true
+
+//----------------------------------------------------------
+
+    // negálás:
+
+       console.log(!true);       // false
+       console.log (!false);     // true
+
+//---------------------
+
+     // precedencia ---> meg van határozva a végrehajtás sorrendje
+
+      console.log(2 === 2 && 1 > 5);                    // false
+      console.log(2 === 2 && 1 > 5 || true );           // true
+      console.log(2 === 2 && ( 1 > 5 || true));         //true   ( zárójellel felülírható a sorrend)
+
+//----------------------------------------------------------
+
+     // string operátor: (string, string) ---> string
+
+     // konkatenálás  = összefűzés
+      console.log("Szia" + " " + "Dániel");  // Szia Dániel
+
+//----------------------------------------------------------
+
+     // conditional operátor : (bool, any, any) ---> any
+
+                   // Ha a bool = true ---> az első any lesz az eredmény
+                   // Ha a bool = false ---> a második any lesz az eredmény
+
+       console.log(true ? "red" : "blue");    // red
+       console.log(false? "red" : "blue");    // blue
+
+//----------------------------------------------- 7. fejezet OPRÁTOROK II. ----------------------------------------
+//         https://www.youtube.com/watch?v=5EZqQEdx1vQ&ab_channel=K%C3%B3db%C3%A1zis
+
+
+// assignment operátor: (var, any) ---> any
+
+   var valtozo;                          // a változó egyben kulcs is, amihez értékeket kell rendelni. Érték megadása nélkül undefined lesz.
+  
+   console.log(valtozo);
+   // így is felírhatjuk:
+   console.log(valtozo = "szia");
+   console.log(valtozo);                // ebben az esetben, az új értéket fogjuk megkapni ---> szia
+
+//------------------------------------------
+
+   // increment (++), decrement(--) operátorok:    postfix módon leírhatók
+
+   var valtozo = 8;
+   console.log(valtozo);   // kiírta az értéket ---> 8
+   valtozo++;
+   console.log(valtozo);   // hozzáadott 1-t ---> 9
+   valtozo--;
+   console.log(valtozo);  // az változó legutolsó értékéből, vagyis 9-ből elvett 1-t ---> 8  valtozo
+
+//---------------------------------------------
+
+  // Módosítást végző operátor:  += , -= ,   általunk meghatározott explicit értékkel módosítja az eredményt
+
+  var szam = 5;
+  szam += 10;
+  console.log(szam);
+   
+   
+   
+   
+
+
+    
+     
+    </script>
+</body>
+</html>
